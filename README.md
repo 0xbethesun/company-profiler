@@ -1,12 +1,16 @@
 # Company Profiler
 
-A local, markdown-first company research tool that runs inside Claude Code. Turns a company name into a decision-ready "brain map" prepared for a conversation with that company's leadership, sourced fact by fact.
+A local, markdown-first agent that researches any company end to end and writes a sourced, current "brain map" of what they do, who runs them, and what is going on in their world.
+
+Useful any time you need to get up to speed on a company fast and want the result to be accurate, sourced, and skimmable. Interview prep, outreach, partnership conversations, investor diligence, competitive research, journalism, or just "I want to actually understand this company." All work the same way.
 
 No web app. No server. No UI. Markdown files are the only output.
 
 ## Why I built this
 
-I built this during a 2026 job search to test whether an AI-native research workflow could produce sharper interview prep than I could write by hand. The answer was yes when the discipline (fact-plus-source, notes-before-map, the exemplar load) was tight, and forgettable when it wasn't.
+I built this to test whether an AI-native research workflow could produce sharper company understanding than I could write by hand. The answer was yes when the discipline (fact-plus-source, notes-before-map, the exemplar load) was tight, and forgettable when it wasn't.
+
+The same workflow that gets you ready for an interview also gets you ready for a sales call, a pitch meeting, or a board prep. The discipline is what matters. The use case is just the lens.
 
 ## What it does
 
@@ -40,12 +44,20 @@ From inside Claude Code at the repo root:
 Examples.
 
 ```
+# Plain research, just get current on a company fast
+/profile "Anthropic" purpose=outreach
+
+# Outreach or partnership prep with named people
 /profile "Stripe" people="Patrick Collison, John Collison" purpose=outreach
 
-/profile "Some Startup" purpose=outreach
+# Interview prep, with the role and key people
+/profile "Some Startup" job_url=https://... people="Founder Name" purpose=interview
+
+# Pull in a podcast transcript or local PDF for a deep-dive section
+/profile "Stripe" purpose=outreach local_sources="/path/to/transcript.md"
 ```
 
-The committed [`companies/stripe.md`](companies/stripe.md) was generated with the first command above.
+The committed [`companies/stripe.md`](companies/stripe.md) was generated with the second command above.
 
 The richer the input, the richer the map. A company name alone still produces a strong core map.
 
