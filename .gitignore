@@ -1,0 +1,17 @@
+# Only the committed exemplar is public. Everything else in companies/
+# stays local.
+companies/*
+!companies/stripe.md
+!companies/stripe-notes.md
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code working state
+.claude/settings.local.json
